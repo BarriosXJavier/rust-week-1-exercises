@@ -26,7 +26,7 @@ pub fn calculate_total_reward(blocks_mined: u64) -> f64 {
 /// Return true if the transaction fee is between 0.00001 and 0.01 BTC.
 pub fn is_valid_tx_fee(fee: f64) -> bool {
     // TODO: Check if fee is between 0.00001 and 0.01 BTC (inclusive)
-    if fee >= 0.00001 && fee <= 0.01 {
+    if (0.00001..=0.01).contains(&fee) {
         return true;
     }
     false
@@ -68,7 +68,7 @@ pub fn is_mainnet(network: &str) -> bool {
 /// Return true if value is in the inclusive range 100..=200.
 pub fn is_in_range(value: i64) -> bool {
     // TODO: Check if 100 <= value <= 200
-    if value >= 100 && value <= 200 {
+    if (100..=200).contains(&value) {
         return true;
     }
     false
